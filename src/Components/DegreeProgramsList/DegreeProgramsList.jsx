@@ -26,9 +26,6 @@ const DegreeProgramsList = () => {
       <div className={`degree-programs-list ${isDarkMode ? 'dark-mode' : ''}`}>
         <div className="container">
           <h2>Program type not found</h2>
-          <button onClick={() => navigate('/')} className="back-btn">
-            Back to Programs
-          </button>
         </div>
       </div>
     );
@@ -46,16 +43,6 @@ const DegreeProgramsList = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="container">
-        <motion.button
-          className="back-btn"
-          onClick={() => navigate('/')}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          title="Back to Programs"
-        >
-          ←
-        </motion.button>
-
         <motion.div
           className="program-header"
           initial={{ opacity: 0, y: 30 }}

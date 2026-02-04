@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Testimonials.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import next_icon from '../../assets/next-icon.png';
-import back_icon from '../../assets/back-icon.png';
 import user_1 from '../../assets/user-1.png';
 import user_2 from '../../assets/user-2.png';
 import user_3 from '../../assets/user-3.png';
@@ -30,11 +29,6 @@ const Testimonials = () => {
   const slideForward = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0));
-  };
-
-  const slideBackward = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1));
   };
 
   const slideVariants = {
@@ -74,18 +68,6 @@ const Testimonials = () => {
         tabIndex={0}
         onKeyDown={(e) => e.key === 'Enter' && slideForward()}
         aria-label="Next testimonial"
-      />
-      <motion.img
-        src={back_icon}
-        alt="Previous"
-        className="back-btn"
-        onClick={slideBackward}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && slideBackward()}
-        aria-label="Previous testimonial"
       />
       
       <div className="slider">

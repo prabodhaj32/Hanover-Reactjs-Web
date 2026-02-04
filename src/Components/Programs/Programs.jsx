@@ -28,6 +28,14 @@ const Programs = () => {
     navigate(`/programs/${programId}`);
   };
 
+  const handleProgramKeyDown = (e, programId) => {
+    // Support keyboard activation for accessibility
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleProgramClick(programId);
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -62,16 +70,20 @@ const Programs = () => {
       {programsData.map((program) => (
         <motion.div
           key={program.id}
-          className="program"
+          className={`program ${isDarkMode ? 'dark-mode' : ''}`}
           variants={cardVariants}
           whileHover={{ y: -10 }}
           transition={{ type: "spring", stiffness: 300 }}
           onClick={() => handleProgramClick(program.id)}
+          onKeyDown={(e) => handleProgramKeyDown(e, program.id)}
+          role="button"
+          tabIndex={0}
+          aria-label={`View ${program.type} programs`}
           style={{ cursor: 'pointer' }}
         >
           <motion.img
             src={imageMap[program.image]}
-            alt={program.title}
+            alt={program.type}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           />
@@ -83,7 +95,7 @@ const Programs = () => {
           >
             <motion.img
               src={imageMap[program.icon]}
-              alt=""
+              alt={`${program.type} icon`}
               initial={{ scale: 0, rotate: -180 }}
               whileHover={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 200 }}

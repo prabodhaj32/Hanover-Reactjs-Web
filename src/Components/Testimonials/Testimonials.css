@@ -10,7 +10,7 @@
 }
 
 .next-btn,
-.back-btn {
+.next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -35,12 +35,8 @@
     right: 0;
 }
 
-.back-btn {
-    left: 0;
-}
-
 .next-btn:hover,
-.back-btn:hover {
+.next-btn:hover {
     background: var(--gradient-accent);
     transform: translateY(-50%) scale(1.15);
     box-shadow: var(--shadow-colored-lg);
@@ -48,7 +44,7 @@
 }
 
 .testimonials.dark-mode .next-btn,
-.testimonials.dark-mode .back-btn {
+.testimonials.dark-mode .next-btn {
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     border-color: rgba(255, 255, 255, 0.2);
 }
@@ -210,7 +206,7 @@
     }
     
     .next-btn,
-    .back-btn {
+    .next-btn {
         padding: 12px;
         width: 45px;
         height: 45px;
@@ -237,7 +233,7 @@
     }
     
     .next-btn,
-    .back-btn {
+    .next-btn {
         width: 40px;
         height: 40px;
         padding: 10px;

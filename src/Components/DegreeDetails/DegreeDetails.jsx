@@ -139,7 +139,7 @@ const DegreeDetails = () => {
   let programType = null;
 
   for (const program of programsData) {
-    const foundDegree = program.degrees.find(d => d.id === parseInt(degreeId));
+    const foundDegree = program.degrees.find(d => d.id === parseInt(degreeId, 10));
     if (foundDegree) {
       degree = foundDegree;
       programType = program;
@@ -156,6 +156,11 @@ const DegreeDetails = () => {
       </div>
     );
   }
+
+  const handleInquire = () => {
+    // Simple + reliable: go home and let user use Contact section
+    navigate('/');
+  };
 
   return (
     <motion.div
@@ -342,6 +347,7 @@ const DegreeDetails = () => {
           </motion.button>
           <motion.button
             className="inquire-btn"
+            onClick={handleInquire}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
