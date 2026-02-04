@@ -115,7 +115,7 @@ const Testimonials = () => {
                   />
                   <div>
                     <h3>{testimonials[currentIndex]?.name}</h3>
-                    <span>{testimonials[currentIndex]?.role || 'Edusity, USA'}</span>
+                    <span>{testimonials[currentIndex]?.role || 'Hanover School, USA'}</span>
                   </div>
                 </div>
                 <motion.p

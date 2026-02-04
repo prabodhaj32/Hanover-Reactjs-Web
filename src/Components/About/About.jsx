@@ -57,7 +57,7 @@ const About = ({ setPlayState }) => {
       >
         <motion.img
           src={about_img}
-          alt="About University"
+          alt="About Hanover School"
           className="about-img"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
@@ -90,7 +90,7 @@ const About = ({ setPlayState }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          ABOUT UNIVERSITY
+          ABOUT HANOVER SCHOOL
         </motion.h3>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -106,7 +106,7 @@ const About = ({ setPlayState }) => {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          Edusity University stands as a beacon of modern education, dedicated to fostering academic
+          Hanover School stands as a beacon of modern education, dedicated to fostering academic
           excellence and innovation. It is a forward-thinking institution that prioritizes the
           holistic development of students, ensuring they are equipped with the knowledge, skills,
           and mindset to thrive in an interconnected and rapidly evolving world.
@@ -117,10 +117,10 @@ const About = ({ setPlayState }) => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          The university is renowned for its comprehensive academic offerings,
+          The school is renowned for its comprehensive academic offerings,
           ranging from undergraduate to postgraduate programs across various disciplines such
           as Engineering, Business, Computer Science, Media Studies, Arts, and more. Additionally,
-          Edusity provides specialized professional courses and certifications in cutting-edge fields
+          Hanover School provides specialized professional courses and certifications in cutting-edge fields
           like Artificial Intelligence, Data Science, Digital Marketing, and Cybersecurity, designed to
           meet the demands of a competitive job market.
         </motion.p>
@@ -142,7 +142,7 @@ export default About;
 //     <div className="about">
 //       {/* Left Section */}
 //       <div className="about-left">
-//         <img src={about_img} alt="About University" className="about-img" />
+//         <img src={about_img} alt="About Hanover School" className="about-img" />
 //         <img 
 //           src={play_icon} 
 //           alt="Play Video" 
@@ -155,18 +155,18 @@ export default About;
 
 //       {/* Right Section */}
 //       <div className="about-right">
-//         <h3>ABOUT UNIVERSITY</h3>
+//         <h3>ABOUT HANOVER SCHOOL</h3>
 //         <h2>Nurturing Tomorrow's Leaders Today</h2>
 //         <p>
-//           Edusity University stands as a beacon of modern education, dedicated to fostering academic
+//           Hanover School stands as a beacon of modern education, dedicated to fostering academic
 //           excellence and innovation. It is a forward-thinking institution that prioritizes the holistic
 //           development of students, ensuring they are equipped with the knowledge, skills, and mindset
 //           to thrive in an interconnected and rapidly evolving world.
 //         </p>
 //         <p>
-//           The university is renowned for its comprehensive academic offerings, ranging from undergraduate 
+//           The school is renowned for its comprehensive academic offerings, ranging from undergraduate 
 //           to postgraduate programs across various disciplines such as Engineering, Business, Computer Science, 
-//           Media Studies, Arts, and more. Additionally, Edusity provides specialized professional courses and 
+//           Media Studies, Arts, and more. Additionally, Hanover School provides specialized professional courses and 
 //           certifications in cutting-edge fields like Artificial Intelligence, Data Science, Digital Marketing, 
 //           and Cybersecurity, designed to meet the demands of a competitive job market.
 //         </p>

@@ -6,6 +6,8 @@ import { useTheme } from '../../context/ThemeContext';
 const Footer = () => {
   const { isDarkMode } = useTheme();
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <motion.footer
       className={`footer ${isDarkMode ? 'dark-mode' : ''}`}
@@ -14,33 +16,46 @@ const Footer = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-      >
-        © 2024 Edusity. All rights reserved
-      </motion.p>
-      <motion.ul
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        <motion.li
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
+      <div className="footer-content">
+        <motion.div
+          className="footer-left"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
         >
-          Terms of Services
-        </motion.li>
-        <motion.li
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
+          <p>© {currentYear} Hanover School. All rights reserved.</p>
+        </motion.div>
+        
+        <motion.div
+          className="footer-right"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
         >
-          Privacy Policy
-        </motion.li>
-      </motion.ul>
+          <ul>
+            <motion.li
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <a href="#terms">Terms of Service</a>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <a href="#privacy">Privacy Policy</a>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <a href="#contact">Contact Us</a>
+            </motion.li>
+          </ul>
+        </motion.div>
+      </div>
     </motion.footer>
   );
 };

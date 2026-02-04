@@ -86,7 +86,7 @@ const Contact = () => {
                 </motion.h3>
                 <p>
                     We're here to help! Whether you have questions about our programs, admissions, or campus life, 
-                    feel free to reach out to us. At Edusity University, we are committed to providing you with 
+                    feel free to reach out to us. At Hanover School, we are committed to providing you with 
                     the information and support you need to make informed decisions about your education and future.
                 </p>
                 <ul>
@@ -95,7 +95,7 @@ const Contact = () => {
                         transition={{ duration: 0.2 }}
                     >
                         <img src={mail_icon} alt="Email" />
-                        <a href="mailto:info@edusityuniversity.edu">info@edusityuniversity.edu</a>
+                        <a href="mailto:info@hanoverschool.edu">info@hanoverschool.edu</a>
                     </motion.li>
                     <motion.li
                         whileHover={{ x: 5 }}
@@ -110,7 +110,7 @@ const Contact = () => {
                     >
                         <img src={location_icon} alt="Location" />
                         <span>
-                            Edusity University<br />
+                            Hanover School<br />
                             123 Innovation Avenue<br />
                             Learning City, Knowledge State
                         </span>

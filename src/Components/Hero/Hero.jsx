@@ -5,6 +5,8 @@ import { Link } from 'react-scroll';
 import dark_arrow from '../../assets/dark-arrow.png';
 import play_icon from '../../assets/play-icon.png';
 import hero_img from '../../assets/hero.png';
+import logo from '../../assets/logo2.png';
+import heroBackground from '../../assets/hero1.jpg';
 
 // Animation variants for staggered entrance
 const containerVariants = {
@@ -70,58 +72,128 @@ const Hero = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      style={{ backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(99, 102, 241, 0.80) 30%, rgba(139, 92, 246, 0.75) 60%, rgba(37, 99, 235, 0.80) 100%), url(${hero_img})` }}
+      style={{ 
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${heroBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
     >
-      {/* Floating gradient shapes */}
-      <div className="hero-shapes">
-        <div className="shape shape-1" />
-        <div className="shape shape-2" />
-        <div className="shape shape-3" />
-      </div>
-
-      {/* Background overlay layers */}
-      <div className="hero-overlay" />
-      
       {/* Content wrapper */}
       <div className="hero-content">
-        {/* Glassmorphism content container */}
-        <motion.div 
-          className="hero-glass-container" 
-          variants={itemVariants}
-        >
-          <div className="hero-text">
+        <div className="hero-left">
+          {/* University Logo */}
+          <motion.div 
+            className="hero-logo-container"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <motion.img
+              src={logo}
+              alt="Hanover School Logo"
+              className="hero-logo"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="logo-badge"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+            >
+              Since 1965
+            </motion.div>
+          </motion.div>
+
+          <motion.div className="hero-text" variants={itemVariants}>
             <motion.h1 variants={itemVariants}>
-              Empowering Minds.<br />
-              <span className="gradient-text">Shaping the Future.</span>
+              Excellence in Education<br />
+              <span className="highlight-text">At Hanover School</span>
             </motion.h1>
             
             <motion.p variants={itemVariants}>
-              World-class education for tomorrow's leaders. Join Edusity University and 
-              unlock your potential in a dynamic, innovative learning environment.
+              Discover a world of opportunities at Hanover School. Where tradition meets innovation 
+              and students are empowered to achieve their full potential.
             </motion.p>
             
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <motion.div className="hero-cta-group" variants={itemVariants}>
               <motion.div variants={buttonVariants} whileHover="hover">
                 <Link to="program" smooth={true} offset={-100} duration={500}>
-                  <button className="btn hero-btn-primary" aria-label="Explore our programs">
-                    Explore Programs
+                  <button className="btn hero-btn-primary" aria-label="Find courses">
+                    Find Courses
                     <img src={dark_arrow} alt="" aria-hidden="true" />
                   </button>
                 </Link>
               </motion.div>
-              
-              <motion.div variants={buttonVariants} whileHover="hover">
-                <Link to="about" smooth={true} offset={-100} duration={500}>
-                  <button className="btn hero-btn-secondary" aria-label="Learn more about Edusity">
-                    <img src={play_icon} alt="" aria-hidden="true" />
-                    Watch Video
-                  </button>
-                </Link>
-              </motion.div>
             </motion.div>
-          </div>
-        </motion.div>
+
+            {/* Trust Rating */}
+            <motion.div className="trust-rating" variants={itemVariants}>
+              <div className="stars">
+                <span className="star">★</span>
+                <span className="star">★</span>
+                <span className="star">★</span>
+                <span className="star">★</span>
+                <span className="star">★</span>
+              </div>
+              <span className="rating-text">4.9 (2,587 reviews)</span>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <div className="hero-right">
+          {/* Stats Cards */}
+          <motion.div className="stats-cards" variants={itemVariants}>
+            <motion.div 
+              className="stat-card"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="stat-number">15,000+</div>
+              <div className="stat-label">Enrolled Students</div>
+            </motion.div>
+            
+            <motion.div 
+              className="stat-card"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="stat-number">85%</div>
+              <div className="stat-label">Graduation Rate</div>
+            </motion.div>
+          </motion.div>
+
+          {/* Featured Program Card */}
+          <motion.div 
+            className="featured-course"
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="course-image">
+              <img src={hero_img} alt="Featured Program" />
+            </div>
+            <div className="course-content">
+              <div className="course-category">Undergraduate</div>
+              <h3 className="course-title">Bachelor of Science in Computer Science</h3>
+              <div className="course-meta">
+                <span className="course-lessons">120 Credits</span>
+                <span className="course-duration">4 Years</span>
+              </div>
+              <div className="course-footer">
+                <div className="course-price">$8,500/year</div>
+                <div className="course-instructor">
+                  <div className="instructor-avatar">HS</div>
+                  <span>Hanover School</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}

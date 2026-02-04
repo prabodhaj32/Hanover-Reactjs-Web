@@ -101,7 +101,7 @@ const Navbar = () => {
         <RouterLink to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <motion.img
             src={logo}
-            alt="Edusity Logo"
+            alt="Hanover School Logo"
             className="logo"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}

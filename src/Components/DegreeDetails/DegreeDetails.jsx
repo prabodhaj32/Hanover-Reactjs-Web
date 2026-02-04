@@ -152,9 +152,6 @@ const DegreeDetails = () => {
       <div className={`degree-details ${isDarkMode ? 'dark-mode' : ''}`}>
         <div className="container">
           <h2>Degree not found</h2>
-          <button onClick={() => navigate('/')} className="back-btn">
-            Back to Programs
-          </button>
         </div>
       </div>
     );
@@ -168,48 +165,115 @@ const DegreeDetails = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="container">
-        <motion.button
-          className="back-btn"
-          onClick={() => navigate(`/programs/${programType.id}`)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          title={`Back to ${programType.type}`}
-        >
-          ←
-        </motion.button>
-
         <motion.div
           className="degree-header"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <div className="degree-image">
+          <motion.div 
+            className="degree-image-container"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             <motion.img
               src={imageMap[programType.image]}
               alt={programType.type}
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
             />
-          </div>
-          <div className="degree-info">
+            <motion.div 
+              className="image-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
+            >
+              <div className="overlay-content">
+                <motion.div
+                  className="program-badge"
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: 1.0, type: "spring", stiffness: 200 }}
+                >
+                  {programType.type}
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
+          
+          <motion.div 
+            className="degree-info"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <motion.div className="degree-meta">
+              <motion.span 
+                className="degree-category"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+              >
+                {programType.type}
+              </motion.span>
+              <motion.span 
+                className="degree-level"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.4 }}
+              >
+                {degree.level || 'Undergraduate'}
+              </motion.span>
+            </motion.div>
+            
             <motion.h1
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
             >
               {degree.name}
             </motion.h1>
-            <motion.div
-              className="program-type-badge"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.4 }}
+            
+            <motion.p 
+              className="degree-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.4 }}
             >
-              {programType.type}
+              {degree.subtitle || `Advance your career with our comprehensive ${programType.type.toLowerCase()} program`}
+            </motion.p>
+            
+            <motion.div 
+              className="degree-highlights"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.6 }}
+            >
+              <div className="highlight-item">
+                <div className="highlight-icon">📚</div>
+                <div className="highlight-text">
+                  <span className="highlight-label">Duration</span>
+                  <span className="highlight-value">{degree.duration}</span>
+                </div>
+              </div>
+              <div className="highlight-item">
+                <div className="highlight-icon">💰</div>
+                <div className="highlight-text">
+                  <span className="highlight-label">Tuition</span>
+                  <span className="highlight-value">{degree.price}</span>
+                </div>
+              </div>
+              <div className="highlight-item">
+                <div className="highlight-icon">🎓</div>
+                <div className="highlight-text">
+                  <span className="highlight-label">Degree</span>
+                  <span className="highlight-value">{degree.credits || '120 Credits'}</span>
+                </div>
+              </div>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div

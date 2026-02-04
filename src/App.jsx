@@ -56,58 +56,61 @@ import FAQ from './Components/FAQ/FAQ';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer';
+import { ThemeProvider } from './context/ThemeContext';
 
 const App = () => {
   // State to toggle video player visibility
   const [playState, setPlayState] = useState(false);
 
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={
-          <>
-            {/* Navigation Bar */}
-            <Navbar />
+    <ThemeProvider>
+      <div>
+        <Routes>
+          <Route path="/" element={
+            <>
+              {/* Navigation Bar */}
+              <Navbar />
 
-            {/* Hero Section */}
-            <Hero />
+              {/* Hero Section */}
+              <Hero />
 
-            <div className="container">
-              {/* Programs Section */}
-              <Title subTitle="Our PROGRAM" title="What We Offer" />
-              <Programs />
+              <div className="container">
+                {/* Programs Section */}
+                <Title subTitle="Our PROGRAM" title="What We Offer" />
+                <Programs />
 
-              {/* About Section with Video Trigger */}
-              <About setPlayState={setPlayState} />
+                {/* About Section with Video Trigger */}
+                <About setPlayState={setPlayState} />
 
-              {/* Campus Gallery */}
-              <Title subTitle="Gallery" title="Campus Photos" />
-              <Campus />
+                {/* Campus Gallery */}
+                <Title subTitle="Gallery" title="Campus Photos" />
+                <Campus />
 
-              {/* Testimonials */}
-              <Title subTitle="TESTIMONIALS" title="What Students Say" />
-              <Testimonials />
+                {/* Testimonials */}
+                <Title subTitle="TESTIMONIALS" title="What Students Say" />
+                <Testimonials />
 
-              {/* FAQ Section */}
-              <Title subTitle="FAQ" title="Frequently Asked Questions" />
-              <FAQ />
+                {/* FAQ Section */}
+                <Title subTitle="FAQ" title="Frequently Asked Questions" />
+                <FAQ />
 
-              {/* Contact Section */}
-              <Title subTitle="Contact Us" title="Get in Touch" />
-              <Contact />
-            </div>
+                {/* Contact Section */}
+                <Title subTitle="Contact Us" title="Get in Touch" />
+                <Contact />
+              </div>
 
-            {/* Footer */}
-            <Footer />
+              {/* Footer */}
+              <Footer />
 
-            {/* Video Player */}
-            <VideoPlayer playState={playState} setPlayState={setPlayState} />
-          </>
-        } />
-        <Route path="/programs/:programId" element={<DegreeProgramsList />} />
-        <Route path="/degree/:degreeId" element={<DegreeDetails />} />
-      </Routes>
-    </div>
+              {/* Video Player */}
+              <VideoPlayer playState={playState} setPlayState={setPlayState} />
+            </>
+          } />
+          <Route path="/programs/:programId" element={<DegreeProgramsList />} />
+          <Route path="/degree/:degreeId" element={<DegreeDetails />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
 };
 
