@@ -18,7 +18,7 @@
 }
 
 .faq.dark-mode {
-  background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(22, 163, 74, 0.08) 100%); border-radius: 20px;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(22, 163, 74, 0.08) 100%); border-radius: 23px;
 }
 
 .faq.dark-mode::before {
