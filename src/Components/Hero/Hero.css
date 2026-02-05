@@ -39,6 +39,7 @@ body.dark-mode .hero {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
+    justify-items: stretch;
 }
 
 /* --------------------------------------------
@@ -48,6 +49,17 @@ body.dark-mode .hero {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    justify-content: center;
+}
+
+/* --------------------------------------------
+   Right Section - Cards
+   -------------------------------------------- */
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
 }
 
 /* --------------------------------------------
@@ -601,11 +613,55 @@ body.dark-mode .scroll-wheel {
     }
 }
 
+/* Laptop specific fixes */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 0 4%;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .hero-left {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .hero-right {
+        align-items: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 42px;
+        text-align: center;
+    }
+    
+    .hero-text p {
+        max-width: 500px;
+        margin: 0 auto 32px auto;
+        text-align: center;
+    }
+    
+    .stats-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .featured-course {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 968px) {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
+        padding: 0 4%;
     }
     
     .hero-left {
